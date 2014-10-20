@@ -6,7 +6,6 @@
     <input type="number" ng-model="ngModel" placeholder="{{field.name}}">
 </script>
 
-
 <script type="text/ng-template" id="/fields/dc-textarea.html">
     <textarea ng-model="ngModel" placeholder="{{field.name}}"></textarea>
 </script>
@@ -19,48 +18,7 @@
     <select ng-model="ngModel" ng-options="opt.name as opt.name for opt in values"></select>
 </script>
 
-
-
-<script type="text/ng-template" id="object-form.html">
-    <a href="" ng-click="visible=!visible">show/hide form</a>
-
-    <div style="border: solid 1px #eee; padding: 10px" ng-show="true">
-
-        <form ng-submit="save(ngModel)" style="width: 100%">
-            <h3>Object Name:</h3>
-
-           <input type="text" ng-model="ngModel.name" required placeholder="object name" />
-
-            <h3>Fields:</h3>
-
-            <button type="button" ng-click="addField()">+</button>
-            <button type="submit"> save </button>
-            <br />
-            <div ng-repeat="field in ngModel.fields">
-                <input type="text" ng-model="field.name" required placeholder="field name"/>
-                <select ng-model="field.type" ng-options="name as o.name for (name, o) in fields"></select>
-                <select ng-model="field.collection" required placeholder="collection-name" ng-options="name as name for (name, object) in objects" ng-show="field.type=='hasOne'"/>
-            </div>
-
-        </form>
-    </div>
-</script>
-
-
-<div class="left" dc-object-collection>
-    <h2>Objects</h2>
-
-    <dc-object-form ng-model="record"></dc-object-form>
-
-    <div ng-repeat="(name,object) in objects">
-        <a ng-click="select(object)" href="">
-            <h3>{{name}}</h3>
-        </a>
-        <div ng-grid="{data: 'object.fields'}" style="height: 150px"></div>
-    </div>
-</div>
-
-<div class="right" dc-record-collection>
+<div dc-record-collection>
     <h2>Records</h2>
     <div ng-repeat="(name,object) in objects" ng-controller="RecordController">
         <h3>
