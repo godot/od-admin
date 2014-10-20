@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('do.records', ['ngRoute'])
+angular.module('ondat.records', ['ngRoute'])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/records', {
             templateUrl: 'records/records.html'

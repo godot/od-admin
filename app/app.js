@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('do', [
+angular.module('ondat', [
     'ngRoute',
-    'do.objects',
-    'do.records',
+    'ondat.objects',
+    'ondat.records',
     'ngGrid'
 ]).
     config(['$routeProvider', function($routeProvider) {

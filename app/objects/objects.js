@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('do.objects', ['ngRoute'])
+angular.module('ondat.objects', ['ngRoute'])
 
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/objects', {
